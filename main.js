@@ -16,31 +16,74 @@ function computerPlay(){
     return result;
 }
 
-const computerSelection = computerPlay();
-const playerSelection = "rock";
-const playerWinTemplate = () => `You win! ${playerSelection} beats ${computerPlay()}`;
-const playerLoseTemplate = () => `You lose! ${computerPlay()} beats ${playerSelection}`;
+let playerWinTotal = 0;
+let compWinTotal = 0;
+let tieTotal = 0;
 
-
-    /*
-        rock
-        paper 
-        scissors
-
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection = window.prompt('Enter rock, paper, or scissors'), computerSelection = computerPlay()){
 
     let player = playerSelection.toLowerCase();
 
-    if((player == 'rock') && (computerSelection == 'paper')){
+    const playerWinTemplate = `You win! ${player} beats ${computerSelection}`;
+    const playerLoseTemplate = `You lose! ${computerSelection} beats ${playerSelection}`;
+    const sameChoiceTemplate = `You and the computer both chose ${playerSelection}!`;
 
-        return 
-
+    switch (player) {
+        case 'rock':
+            if(computerSelection == 'paper'){
+                compWinTotal++;
+                return playerLoseTemplate;
+            }else if(computerSelection == 'scissors'){
+                playerWinTotal++;
+                return playerWinTemplate;
+            }else{ //player and computer made same choice
+                tieTotal++;
+                return sameChoiceTemplate;
+            }
+        case 'paper':
+            if(computerSelection == 'scissors'){
+                compWinTotal++;
+                return playerLoseTemplate;
+            }else if(computerSelection == 'rock'){
+                playerWinTotal++;
+                return playerWinTemplate;
+            }else{ //player and computer made same choice
+                tieTotal++;
+                return sameChoiceTemplate;
+            }
+        case 'scissors':
+            if(computerSelection == 'rock'){
+                compWinTotal++;
+                return playerLoseTemplate;
+            }else if(computerSelection == 'paper'){
+                playerWinTotal++;
+                return playerWinTemplate;
+            }else{ //player and computer made same choice
+                tieTotal++;
+                return sameChoiceTemplate;
+            }
+        default:
+            console.log('switch in playRound is not working correcty');
     }
+
+}
+
+function game(){
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound());
+     }
+     console.log(`Results
+                  Player wins: ${playerWinTotal}
+                  Computer wins: ${compWinTotal}
+                  Ties: ${tieTotal}`
+                  );
+
+}
         
 
 
 
-    */
+    
 
 
 
