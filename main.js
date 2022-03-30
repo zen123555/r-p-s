@@ -15,3 +15,32 @@ function computerPlay(){
     }
     return result;
 }
+
+const computerSelection = computerPlay();
+const playerSelection = "rock";
+const playerWinTemplate = () => `You win! ${playerSelection} beats ${computerPlay()}`;
+const playerLoseTemplate = () => `You lose! ${computerPlay()} beats ${playerSelection}`;
+
+
+    /*
+        rock
+        paper 
+        scissors
+
+function playRound(playerSelection, computerSelection){
+
+    let player = playerSelection.toLowerCase();
+
+    if((player == 'rock') && (computerSelection == 'paper')){
+
+        return 
+
+    }
+        
+
+
+
+    */
+
+
+
